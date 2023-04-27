@@ -1,0 +1,26 @@
+ABCD t110  
+@1 =  { 2 3 }  
+@2 =  { 3 2 } 
+@v1 = { 12 6 4 3 2 2 2 8 7 6 5 4 3 3 3 2 2 2 2 2 1 1 1 1 1 } 
+@v2 = { 6 10 10 10 9 9 9 8 8 8 8 7 7 7 7 7 5 5 5 5 5 4 4 4 4 4 3 3 3 3 3 2 2 2 2 2 1 1 1 1 1 1 } 
+@v3 = { 12 10 8 6 4 2 2 2 2 1 1 1 } 
+@MP1 = { 5, 3, 2 } 
+
+A L @v1 @@1 o4 l8 [g>da+d<]2 [f>cac<]2 [g>da+d<]2 [a>f>c<f<]2 
+A [a+>f>d<f<]2 f>f>c<f<f>f<f+>f+ 
+A <g>da+d<da>f<ag>dadb2 
+
+A o2 g>dgdagd<gda>e<a>fec<aa+>fa+f>c<a+f<a+>cg>c<g>dc<gc 
+A   >g>dgdagd<gda>e<a>fec<aa+>fa+f>c<a+f<a+>cg>c<g>dc<gc 
+
+B L MP1 @v2 @@1 o5 d4.c8<a4g4a4.f8d4l16gaa+>cd4.l8c<a+aga+>f2c2 
+B f4.l16dd+l8fd+d<a+>c4.<l16agf4l8gal4a+agfg1 
+
+B v4 @@2 r16l4g2fef.e8dcd.el16fgf8e8l4f.g16f16ef 
+B >d<a+>g2aefel16[<a+>cd]4eded[fec]2fe[>c<ge]2>c< 
+
+C L l8 o3 q5 grrggrgr frrffrrr grrggrgr arraarar a+rra+a+ra+r frrffrf+rggrrddrrggrrgrrr 
+C q8 >>     l4g2fef.e8dcd.el16fgf8e8l4f.g16f16ef 
+C           >d<a+>g2aefel16[<a+>cd]4eded[fec]2fe[>c<ge]2>c<g 
+
+D L @v3 l8 [@v3ccc{ccc}8ccc@v1c]7 @v3ccc{ccc}8c4c4@v2 [c2]16

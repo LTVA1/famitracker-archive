@@ -1,0 +1,19 @@
+NSF HEADER:
+
+Version number: 1
+Number of songs: 1
+First song: 1
+Load address: $8080
+Init address: $8080
+Play address: $8084
+NTSC speed: $411A
+PAL speed: $4E20
+Bankswitch init values: $00 $00 $00 $00 $00 $00 $00 $00
+Title: Song Name
+Author: Artist
+Copyright: Maker
+
+NSF DATA:
+
+Data size: 24448
+

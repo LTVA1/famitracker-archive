@@ -1,0 +1,182 @@
+#TITLE		PENGUIN ADVENTURE -penguin pop-
+#COMPOSER	KONAMI
+#PROGRAMER	Wiz.
+#EFFECT-INCLUDE
+#BANK-CHANGE 3
+
+;>>>>> Initialize
+// Bass
+@EP0 = { -15 15 0 }
+// Intro
+@EP1 = { -2  2 0 }	// Up
+@EP2 = {  4 -4 0 }	// Down
+// Hi-Hat close
+@v3  = {  5 3 2 1 0 }
+@EP3 = { -2 2 1 0 }
+// Hi-Hat open
+@v4  = {  9 6 5 5 4 4 4 3 3 3 3 2 2 2 2 2 1 }
+@EP4 = { -1 0 1 1 0 }
+// Reverse Cymbal
+@v5  = { 1 1 1 1 2 2 2 2 3 3 3 3  4 4 4 4 5 5 5 5 6 6 6 6  7 7 7 7 8 8 8 8 
+	9 9 9 9 10 10 10 10 11 11 11 11 12 12 12 12 13 13 13 14 14 15 }
+@EP5 = { 1 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 
+	0 0 0 0 -1  0  0  0  0  0  0  0  0  0  0  0 -1  0  0 -1  0 -1 0 }
+// Snare
+@v6  = { 15 12  9  7  6  5  4  3  2  1 }
+@EP6 = {  2 -3 -1 -1 -1 -1 -1 -1 -1  0 }
+// Intro S.E.
+@v7  = {  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+	  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+	  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+	  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 }
+@EP7 = {  0|-2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2
+	 30 }
+// Crash Cymbal
+@v8  = { 15 13 12 11 10 10 9 9 8 8  7 7 6 6 5 5 5  4 4 4 4 3 3 3 3 3
+	  2 2 2 2 2 2 2  1 1 1 1 1 1 1 1 1 1 1 0 }
+@EP8 = {  0 -1  0  0 -1  0 0 0 0 0 -1 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 0
+	  0 0 0 0 0 0 0 -1 0 }
+// Sequence
+@9   = { 1 3 3 1 3 }
+@v9  = { 1 }	; Delay
+// Brass
+@10  = {  3 2 1 0 0 1 }
+@11  = {  3 3 2 }
+@v10 = {  6 8 7 7 7 7 7 7 7 6 }
+@v11 = {  4 6 5 5 5 5 5 5 5 4 }
+@EP10= { -30  5  5  5  5  5  5 0 }	// Up
+@EP11= {  30 -5 -5 -5 -5 -5 -5 0 }	// Down
+// Sequence2
+@12  = { 1   2  3  3 3 1 2 3 }
+@v12 = { 15 12 11 10 9 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 2 1 }
+@v13 = { 13 10 9 8 8 4 4 4 4 3 3 3 3 2 2 2 2 1 }
+@v14 = { 11  9 8 7 7 3 3 3 3 2 2 2 2 2 1 }
+@v15 = {  9  7 6 6 5 2 2 2 2 2 2 1 }
+@16  = {  1  2 3 3 1 2 3 }
+@v16 = {  8  6 5 5 2 2 2 2 2 2 1 }
+@17  = {  1  2 3 1 2 3 }
+@v17 = {  7  5 4 2 2 2 1 }
+@v18 = {  6  4 3 2 2 1 }
+@v19 = {  5  3 3 1 }
+@v20 = {  4  2 2 1 }
+// Synth
+@21  = { 1 3 }
+@v21 = { 15 12 11 11 10 10 10 10 10 9 }
+// Chorus
+@v22 = { 12 11 10 9 }
+
+// Note Envelope
+@EN0 = { 0 |4 -4 }
+@EN1 = { 0 |4 3 -7 }
+@EN2 = { 0 |4 3 5 -12 }
+@EN3 = { 0  0 -5 0 5 0 }
+
+// LFO
+@MP0 = { 10  3  9 0 }	// Normal
+@MP1 = { 10  3  4 0 }	// Less
+@MP2 = { 10  3 36 0 }	// Deep
+@MP3 = { 10  1 12 0 }	// Fast
+@MP4 = { 10 12 12 0 }	// Slow
+@MP5 = {  0  3 12 0 }	// Non Delay
+@MP6 = { 50  3 12 0 } 	// Delay
+
+// Delta-PCM
+@DPCM0  = { "wz_teck2.dmc",15 }		// Techno Kick 2
+@DPCM2  = { "wz_tcsk2.dmc",15 }		// Techno Kick 2 + Techno Snare 2
+@DPCM4  = { "wz_highq.dmc",15 }		// High-Q
+@DPCM11 = { "wz_tckcc.dmc",15 }		// Techno Kick 2 + Clash Cymbal
+@DPCM9  = { "wz_stomh.dmc",15 }		// Synth-Tom High
+@DPCM7  = { "wz_stomm.dmc",15 }		// Synth-Tom Middle
+@DPCM5  = { "wz_stoml.dmc",15 }		// Synth-Tom Low
+
+
+;>>>>> Main
+ABCDE	t128
+
+// Melody
+A	o5l16q8
+A	[r1]2 r8D-4EP7v1@1e1..r8 D0
+A	[r1]2 EPOFq4@3v3<c24<g24>>c24<q8c4.&c32>c32>c32<<<g32>q4crr4
+A	>c>>c<<<g32<g32>>q8g&g4
+A	l32r@@9EPOFD-6>v2ee-d@v11ee-dd-c<bb-aa-gg-fl16D0
+A	@@10@v10<[q4EP2cEP1g>c<EP2g>EP1q5dq4eEP2c<<MP5q8b-&
+A	b->MPOFq4EP1fb-EP2f>EP1q6cq4d<q8EP2MP5b-8
+A	MPOF<q4a->EP1e-a-EP2e-EP1q5b->q4c<EP2a-<MP5q8b-&
+A	b->MPOFq4EP1fb-EP2fEP1q6b-EP2q4aEP1b-b]4
+A	[>MP0@@11q8EP10f8EPOFg8EP2fq3EPOFecq8>EP10c&c2&
+A	c8EPOF<q3b-q8b-&b-8EP2gEP1q3b-EP2q8a-8EPOFg8EP1a-EPOFq3gfe
+A	q8EP1f8EPOFe8EP1fEPOFq3efgEP10>q8c2& c4.<EPOFq3b-q8EP2g&g4.EPOFf8
+A	q8EP10f8EPOFe8EP1fq3EPOFecq8>EP10c&c2&
+A	c8<EP2q3b-EPOFq8b-8q3cfb-EP2q8a-8EPOFg8EP1a-EPOFq3gfe
+A	EP10q8f8EPOFe8f>q3cg>q8EP10c&c2& c4.<EPOFq3b-EP2q8g&g2
+A	@@10@v10<<[q4EP2cEP1g>c<EP2g>EP1q5dq4eEP2c<<MP5q8b-&
+A	b->MPOFq4EP1fb-EP2f>EP1q6cq4d<q8EP2MP5b-8
+A	MPOF<q4a->EP1e-a-EP2e-EP1q5b->q4c<EP2a-<MP5q8b-&
+A	b->MPOFq4EP1fb-EP2fEP1q6b-EP2q4aEP1b-b]2]2
+A	@@10@v10[q4EP2dEP1a>d<EP2a>EP1q5eq4f+EP2d<MP5q8c&
+A	cMPOFq4EP1g>cEP2<g>EP1q6dq4eq8EP2MP5c8
+A	MPOF<<q4b->EP1fb-EP2fEP1q5>cq4d<EP2b-MP5q8c&
+A	cMPOFq4EP1g>cEP2<g>|EP1q6c<EP2q4b>EP1cc+]2
+A	l24q8EPOF@@12@v12eff+>cgr
+A	r@v13grr@v14grr@v15grr@@16@v16grr@@17@v17grr@v18grr@v19grr@v20gr
+A	r@v19grr@v18grr@@17@v17grr@@16@v16grr@v15grr@v14grr@v13grr@v12gr
+A	t150l12MP0@@21@v21[q8c4<cq4g>cq8d4c6<q4b->]2
+A	q8c4<cq4g>e-q8d4f6q4d q8deq4dq8c<q4gdq8e2
+
+// Sequence
+B	o5l16q8
+B	[r1]2 EP7@v7@1e1..r4
+B	@@9@v20EPOFD-3<[q3EP2cEP1g>c<EP2g>EP1q4dq3eEP2c<<q8b-&
+B	b->q3EP1fb-EP2f>EP1q6cq3d<q8EP2b-8
+B	<q3a->EP1e-a-EP2e-EP1q4b->q3c<EP2a-|<q8b-&
+B	b->q3EP1fb-EP2fEP1q6b-EP2q3aEP1b-b]2 <q8b- >>D1
+B	l32@@9EPOF@v10>ee-dd-c<bb-aa-gg-fee-dd-l16
+B	<@@9@v17q8EN3[<g>>c<cg>cc<gb- <f>b-<b->fb-b-fb-
+B	<e->a-<a->e-a-a-e-b- <f>b-<b->fb-b-fb-]16
+B	[<a>>d<da>dd<ac <g>>c<cg>cc<g>c
+B	<<f>b-<b->fb-b-f>c <<g>>c<cg>|cc<g>c<]2
+B	l24q8EPOFENOF@@12@v13gaa+>el12gr24
+B	@v14gr24@v15gr24@@16@v16gr24@@17@v17gr24@v18gr24@v19gr24@v20gr24gr24
+B	gr24@v19gr24@v18gr24@@17@v17gr24@@16@v16gr24@v15gr24@v14gr24@v13g
+B	t150l12q8 @2@v22ENOFcEN0cEN1c@q1EN2c2. <q8ENOFa-EN0a-EN1a-@q2EN2a-2.
+B	q8ENOFfEN0fEN1f@q2EN2f4q8ENOFb-EN0b-EN1b-@q2EN2b-4
+B	>q8ENOFcEN0cEN1c@q2EN2c4q8c2
+
+// Bass, Intro
+C	o5l16 EP0
+;----- Intro
+C	[q3EP2cEP1g>c<EP2g>EP1q4dq3eEP2c<<q8b-&
+C	b->q3EP1fb-EP2f>EP1q6cq3d<q8EP2b-8
+C	<q3a->EP1e-a-EP2e-EP1q4b->q3c<EP2a-<q8b-&
+C	b->q3EP1fb-EP2fEP1q6b-EP2q3aEP1b-b]4
+;----- Bass
+C	o4EP0q6[c8cr<cr>cr<b-8.b-<b-b->b-<b-
+C	>a-8a-r<a-r>a-r<b-8.b-|b-b->b-<b->]4 b-ab-b
+C	>[c8crc8<e>c<b-8.b-ddfd a-8a-ra-8ca-b-8.b-fq3eq6fg>]12
+C	[d8drd8<f+>dc8.c<eege b-8b-rb-8db->c8.c|<gq3f+q6ga>]2
+C	g24a24b-24>c24e24r24 r1 r1
+C	t150q8c1 <a-1 f2b-2 >c2<c2
+
+// Hi-hat, Snare, Reverse Cymbal
+D	o2q8l16
+D	[r1]2 [EP4@v4cEP3@v3ccc]6 @v5EP5c2
+D	[EP4@v4cEP3@v3ccc]14 @v5EP5c2
+D	EP8@v8c4[EP4@v4cEP3@v3ccc]15
+D	[EP4@v4cEP3@v3cccEP6@v6cEP3@v3ccc]7 @v5EP5c2
+D	[EP8@v8c4EP6@v6cEP3@v3ccc [EP4@v4cEP3@v3cccEP6@v6cEP3@v3ccc]15
+D	[EP4@v4cEP3@v3cccEP6@v6cEP3@v3ccc]7 |@v5EP5c2]2
+D	EP4@v4cEP3@v3cccEP6@v6cEP3@v3ccc
+D	EP8@v8c4EP6@v6cEP3@v3ccc [EP4@v4cEP3@v3cccEP6@v6cEP3@v3ccc]5
+D	@v5EP5c2.EP6@v6c24c24c24c24c24r24 r1 r4EP5@v5c2.
+D	t150[EP8@v8c2|EP5@v5c2]3 c2 c2c2
+
+// DPCM Drums
+E	o0l16
+E	[r1]3 r2aawgwgff [c4c4c4c4]3 c4c4a32a32aaaggff
+E	b4c4c4c4 [c4c4c4c4]3 [c4d4c4d4]3 c4d4a32a32aaaggff
+E	[b4d8e8c8e8d8e8 [c4d8e8c8e8d8e8]10 |
+E	c4d8e8a32a32aaaggff]2
+E	[c4d8e8c8e8c8gf| b4d8e8c8e8d8e8]2 c4d8e8c8e8c8gf
+E	a32a32aaag32g32gggf32f32fffc24c24c24c24c24w24 w1
+E	l24w2weeeeel32eeeeeeee
+E	t150l12[b2a24a24aaggf]2 [b4agf]2 baagffb2

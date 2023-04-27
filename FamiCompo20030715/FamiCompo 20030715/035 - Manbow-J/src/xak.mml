@@ -1,0 +1,180 @@
+#TITLE		XAK -The Art of Visual Stage
+#MAKER		(c)1989 MicroCabin
+#COMPOSER	Ryuji Sasai & Tadahiro Nitta
+#PROGRAMER	Manbow-J
+#OCTAVE-REV 1
+#EFFECT-INCLUDE
+#BANK-CHANGE	0,3
+
+;-------------------------------------------------------------------------------
+@0 = { 0 }
+@1 = { 1 }
+@2 = { 2 }
+@3 = { 3 }
+@4 = { 1 }
+@5 = { | 1 2 }
+@6 = { 2 }
+@7 = { 0 | 2 }
+
+;-------------------------------------------------------------------------------
+@v0 = { 12  0 }							/ Kick
+@v1 = { 12 11 10 9 8 7 6 5 4 3 2 1 1 1 1 1 1 1 1 1 1 1 1 0 }	/ Snare
+@v2 = { 8 4 2 0 }						/ Close Hi Hat
+
+@v3 = { 6 9 12 8 6 4 3 2 }
+@v4 = { 2 4 6 5 4 3 2 1 }
+
+;-------------------------------------------------------------------------------
+@EP0 = { 0 }
+@EP1 = { 0 -10 0 }				// Snare(noise)
+@EP10 = { 0 -121 }				// Snare(tone)
+
+@EP2 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	 0 0 0 0 0 0 0 0 0 0 0 0
+	 -1 }
+
+@EP3 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	 -4 -3 -4 -3 -4 -3 -4 -3 -3 -3 -3 -3 -3 0 }
+@EP4 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	 3 3 2 3 2 3
+	 2 3 2 3 2 3 0 }
+@EP5 = {  0 0 0 0 0 0 0 0 0 0 0 0
+	 -10 -4 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 0 }
+@EP6 = { 0 0 0 0 0 0 0 0 0 0 0 0
+	 -6 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 0 }
+@EP7 = { 0 0 0 0 0 0 0 0 0 0 0 0
+	 -5 -2 -1 -2 -1 -2 -1 -2 -1 -2 -1 -2 0 }
+@EP8 = { 0 0 0 0 0 0 0 0 0 0 0 0
+	 -3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 0 }
+
+;-------------------------------------------------------------------------------
+@EN0 = { -2 1 1 0 }
+
+;-------------------------------------------------------------------------------
+@MP0 = { 32 2 3 0 }
+
+;-------------------------------------------------------------------------------
+@DPCM4  = { "pcm\bassc2.dmc",  13, 768 }
+@DPCM5  = { "pcm\basscp2.dmc", 13, 768 }
+@DPCM6  = { "pcm\bassd2.dmc",  13, 768 }
+@DPCM7  = { "pcm\bassc2.dmc",  14, 768 }
+@DPCM8  = { "pcm\basscp2.dmc", 14, 768 }
+@DPCM9  = { "pcm\bassd2.dmc",  14, 768 }
+@DPCM10 = { "pcm\bassdp2.dmc", 14, 768 }
+@DPCM11 = { "pcm\basse2.dmc",  14, 768 }
+
+@DPCM16 = { "pcm\bassc2.dmc",  15, 768 }
+@DPCM17 = { "pcm\basscp2.dmc", 15, 768 }
+@DPCM18 = { "pcm\bassd2.dmc",  15, 768 }
+@DPCM19 = { "pcm\bassdp2.dmc", 15, 768 }
+@DPCM20 = { "pcm\basse2.dmc",  15, 768 }
+@DPCM21 = { "pcm\basscp3.dmc", 13, 768 }
+@DPCM22 = { "pcm\bassd3.dmc",  13, 768 }
+@DPCM23 = { "pcm\bassc3.dmc",  14, 768 }
+@DPCM24 = { "pcm\basscp3.dmc", 14, 768 }
+@DPCM25 = { "pcm\bassd3.dmc",  14, 768 }
+@DPCM26 = { "pcm\bassdp3.dmc", 14, 768 }
+@DPCM27 = { "pcm\basse3.dmc",  14, 768 }
+
+@DPCM32 = { "pcm\bassc3.dmc",  15, 768 }
+@DPCM33 = { "pcm\basscp3.dmc", 15, 768 }
+@DPCM34 = { "pcm\bassd3.dmc",  15, 768 }
+@DPCM35 = { "pcm\bassdp3.dmc", 15, 768 }
+@DPCM36 = { "pcm\basse3.dmc",  15, 768 }
+@DPCM37 = { "pcm\basscp4.dmc", 13, 448 }
+
+;-------------------------------------------------------------------------------
+ABCDE t173
+
+;-------------------------------------------------------------------------------
+;	Main Melody
+;-------------------------------------------------------------------------------
+A o4 @@4 @v3 //MP0
+A r8d8f8<c8
+A L
+A w2.EN0d8ENOFc8& c2.EN0d8ENOFe8& e4c4>a4<EN0e8ENOFd8& d2^8>d8f8<c8&
+A c2.EN0e8ENOF>b8& b2.<EN0d8ENOF>a8& a2..g8 a16r16EP2a2.^16..EPOFv0a64	// EP-EN bugs?
+
+A |:
+A @@4 @v3 o4
+A <EN0e4ENOFc4>a4<e8 d2..>b8 <c8d2^8EP3e4& e1& e8EPOF>
+A <EN0e4ENOFc4>a4<e8 d2.>b8b16r16 <c8d2^8r8>EP4g8& g1& g8EPOF<
+A @@5
+A >a8a8<e4e8d8c8 >b4b8b8<c8d8d8c8 >b4b8<g4g8f8e8 d4EP5e4EPOFc4c8c8
+A d8d8EP6b4EPOFg4d8d8 e8d8EP6b4EPOFg4d8d8 e8d8EP6b4EPOFg4d8d8 e8b4.<c16>b16a4. &a8
+A @@6
+A  a8a8<e4e8d8c8> b4b8b8<c8d8d8c8> b4b8<g4g8f8e8 d4EP7e4EPOFc4c8c8>
+A <d8d8EP8b4EPOFg4d8d8 e8d8EP8b4EPOFg4d8d8 e8d8EP8b4EPOFg4d8d8 e8b4.<c16>b16a4.& a8>
+A :|2
+
+A @@7 @v4 o1
+A a8r8a8r8a8r8a8 r8a8r8a8r8a8r8a8r8
+A r1^1^1^1^1^1^1^1
+A [ a8a16r16 ]16 [ g8g16r16 ]16
+A [ a8a16r16 ]16 [ g8g16r16 ]14 g8
+A o4 @@4 @v3 //MP0
+A d8f8<c8
+
+;-------------------------------------------------------------------------------
+;	Sub Melody(Code)
+;-------------------------------------------------------------------------------
+B r2
+B L
+B @@4 @v4 q7 D-1 l16 o4
+B r8agagab<c2& c8c>b<c>b<cde2 e4c4>f4<c8>b8^2..r8
+B r8agagab<c4d8>b8& b8<c>b<c>b<cde2 e1 d4r8e2^8
+B l8 |: [ d4c4>b<c4 d4dc4>b<c4. d4c4>b<c4 e4ed4ce4. ]2
+B       >fffff4f f4fffa4<f >g4gggg4g g4gggb4<g
+B       >a4aaaa4a a4aaa<c4a >a4aaaa4a< a4aggffee
+B        fffff4f f4fffa4<f> g4gggg4g g4gggb4<g>
+B        a4aaaa4a a4aaa<c4a> a4aaaa4a <a4aggffee> :|2
+B @@0 @v3 q8 D0 l16 o2
+B [ a8aaa8aaa8a | aa8aa ]2 <a>a<a>a<a>
+B l64 [ a8a16r16<agfedc>bag16r16<gfedc>bagf+16r16<f+edc>bagf+e8 ]4
+B l16 [ g8g8<g8>g<g>gr<a8>gr<g8> grg8<g8>g<a>gr<b8>gr<g8> ]2
+B [ [ l16 a8<a8gagagagagaga l64 bagfedc>b<g8e8a8bagfedc>b<g8e8a8> ]2
+B   [ l16 g8<g8fgfgfgfgfgfa l64 agfedc>ba<f+8d8g8agfedc>ba<f+8d8g8> ]2 ]2
+
+;-------------------------------------------------------------------------------
+;	Bass
+;-------------------------------------------------------------------------------
+E o0
+E r4.a8
+E L
+E l8
+E w
+E [ <a>a<a>a<a>ag4 <g>g<g>g<g>gf4 <f>f<f>f<f>f | g4 <g>g<f16g16>g<g>ga4 ]2
+E <f> f<f>f<f>f16<f16>f16<d+16<f64^96e64^96d+64^96d64^96c+64^96c64^96>b32a+32a32>
+E |: [ f<f>f<f>f<f>fg4 <g>g<f16g16>g<g>g<g> g<g>g<g>g<g>ga <a>a<a>a<g16a16>a<a>a ]2
+E l16
+E    [ f8frf8frf8frfrf4 frf8frf<e48f24>frfrfr
+E      g8grg8grg8grgrg4 grg8grg<f+48g24>grgrgr
+E      a8ara8ara8arara4 ara8ara<g+48a24>ararar
+E      a8ara8ara8arara4 <g48g+64^96a16^64>g+8<g+8>g<g>f+<f+>f<f>e<e> ]2 :|2
+E [ a8r8 ]8
+E [ a8ar ]16 [ g8gr ]16
+E [ a8ar ]16 [ g8gr ]16
+E [ a8ar ]16 [ g8gr ]15 g8a8
+
+;-------------------------------------------------------------------------------
+;	Kick/Snare (Tone)
+;-------------------------------------------------------------------------------
+C o3
+C r2
+C L
+C [    q4c8r8<q8EP10f48f16.^96EPOFr8> ]16
+C |: [ q4c8r8<q8EP10f48f16.^96EPOFr8> ]48 :|2
+C [    q4c8r8<q8EP10f48f16.^96EPOFr8> ]52
+
+;-------------------------------------------------------------------------------
+;	Kick/Snare (Noise)
+;-------------------------------------------------------------------------------
+D l16
+D r2
+D L
+D    [ @v0n12@v2n3n3n3@v1EP1n6,48n6,32^96EPOF@v2n3n3n3 ]16
+D |: [ @v0n12@v2n3n3n3@v1EP1n6,48n6,32^96EPOF@v2n3n3n3 ]48 :|2
+D    [ @v0n12@v2n3n3n3@v1EP1n6,48n6,32^96EPOF@v2n3n3n3 ]52
+

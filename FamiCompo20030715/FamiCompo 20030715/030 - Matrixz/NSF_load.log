@@ -1,0 +1,19 @@
+NSF HEADER:
+
+Version number: 1
+Number of songs: 1
+First song: 1
+Load address: $8080
+Init address: $8A2E
+Play address: $8A1B
+NTSC speed: $411A
+PAL speed: $0000
+Bankswitch init values: $00 $00 $00 $00 $00 $00 $00 $00
+Title: Oki-dokey (Okiman)
+Author: cover by: Matrixz
+Copyright: 
+
+NSF DATA:
+
+Data size: 17984
+

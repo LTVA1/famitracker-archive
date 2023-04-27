@@ -1,0 +1,234 @@
+#TITLE		ORDYNE -Round X-
+#COMPOSER	namco / Shinji "MEGATEN" Hosoe
+#PROGRAMER	Wiz.
+#EFFECT-INCLUDE
+#BANK-CHANGE 3
+
+;>>>>> Initialize
+// Bass
+@EP0 = { -15 15 0 }
+// Hi-Hat close
+@v1  = {  6 4 3 2 1 }
+@EP1 = { -2 0 }
+// Hi-Hat open
+@v2  = { 10 8 7 6 6 6 6 5 }
+@EP2 = { -1 0 1 1 0 }
+// Crash Cymbal
+@v3  = { 10 9 8 8 8 7 7 7 7 6 6 6 6 5 }
+@EP3 = { -4 1 0 0 1 0 }
+// Ride Cymbal
+@v4  = { 11 9 8 7 6 5 5 4 4 3 3 2 2 1 }
+@EP4 = { 13 0 }
+// Synth
+@EP5 = { -25  5  5  5  5  5 0 }	// Up
+@EP6 = {  25 -5 -5 -5 -5 -5 0 }	// Down
+@EP7 = { -20  10  10 0 }	// Up (Fast)
+@EP8 = {  20 -10 -10 0 }	// Down (Fast)
+@EP9 = {  20 -10 -10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 }	// Down & Down
+@EP10= {  -1 }	// Down (Non Delay)
+@EP11= {  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 }	// Down (Delay)
+@EP12= {  0 0 0 0 0 0 0 0 0 0 0 -1 }	// Down (Short Delay)
+@5   = {  0  0 1 }
+@6   = {  1  1 0 }
+@7   = {  2  2 3 }
+@8   = {  3  3 1 0 0 0 0 0 1 1 1 1 2 2 2 3 }
+@9   = {  3 2 1 0 0 1 }
+@v5  = {  7 10 9 8 8 7 7 7 7 6 }
+@v6  = {  8 11 9 9 9 9 9 9 9 8 }
+@v7  = {  6  8 9 9 9 9 9 9 9 9 9 9 8 }
+@v8  = { 13 11 10 9 9 9 9 9 8 8 8 8 8 7 }
+@v9  = {  8  7  6 5 5 5 5 5 4 4 4 4 4 3 }
+@v10 = {  7 10 9 8 8 7 7 2 }	// Staccart
+@v11 = {  2  4 5 5 5 5 5 5 5 5 5 5 4 }
+// Synth Bell
+@12  = { 1   2  3  3 3 1 2 3 }
+@v12 = { 15 12 11 10 9 5 5 5 5 4 }
+@v13 = { 13 10 9 8 8 4 4 4 4 3 }
+@v14 = { 11  9 8 7 7 3 3 3 3 2 }
+@v15 = {  9  7 6 6 5 2 2 2 2 2 2 1 }
+@16  = {  1  2 3 3 1 2 3 }
+@v16 = {  8  6 5 5 2 2 2 2 2 2 1 }
+@17  = {  1  2 3 1 2 3 }
+@v17 = {  7  5 4 2 2 2 1 }
+@v18 = {  6  4 3 2 2 1 }
+@v19 = {  5  3 3 1 }
+@v20 = {  4  2 2 1 }
+
+// Note Envelope
+@EN0 = { 0 |0 16 0 -16 }
+@EN1 = { 0 |0 1 0 -1 }
+@EN2 = { 0 |0 2 0 -2 }
+@EN3 = { 0 |0 3 0 -3 }
+@EN4 = { 0 |0 4 0 -4 }
+@EN5 = { 0 |0 5 0 -5 }
+@EN6 = { 0 |0 6 0 -6 }
+@EN7 = { 0 |0 7 0 -7 }
+@EN8 = { 0 |0 8 0 -8 }
+@EN9 = { 0 |0 15 0 -15 }
+@EN10= { 0 |5 0 2 0 -7 }
+@EN11= { 0 |4 0 3 0 -7 }
+@EN12= { 0 |2 0 5 0 -7 }
+@EN13= { 0 |5 0 5 0 -10 }
+@EN14= { 0 |3 0 5 0 -8 }
+@EN15= { 0 |4 0 8 0 -12 }
+@EN16= { 0 |4 0 5 0 -9 }
+@EN17= { 0 |4 0 6 0 -10 }
+@EN18= { 0 |7 0 3 0 -10 }
+@EN19= { 0 |4 0 4 0 -8 }
+@EN20= { 0 |9 0 3 0 -12 }
+@EN21= { 0 |9 0 5 0 -14 }
+@EN22= { 0 |5 0 4 0 -9 }
+@EN23= { 0 |3 0 9 0 -12 }
+@EN24= { 0 |0 5 3 -8 }
+@EN25= { 0 |0 6 3 -9 }
+;@EN26= { 0 |0 7 3 -10 }
+;@EN27= { 0 |0 8 3 -11 }
+
+// LFO
+@MP0 = { 30  3  9 0 }	// Normal
+@MP1 = { 10  3  4 0 }	// Less
+;@MP2 = { 10  3 36 0 }	// Deep
+;@MP3 = { 10  1 12 0 }	// Fast
+;@MP4 = { 10 12 12 0 }	// Slow
+@MP5 = {  0  3 12 0 }	// Non Delay
+@MP6 = { 50  3 12 0 } 	// Delay
+
+// Delta-PCM
+@DPCM0  = { "wz_kick2.dmc",15 }		// c : Kick 2
+@DPCM4  = { "wz_pwsd2.dmc",15 }		// e : Power Snare 2
+@DPCM2  = { "wz_psdk2.dmc",15 }		// d : Kick 2 + Power Snare 2
+@DPCM11 = { "wz_clck2.dmc",15 }		// b : Kick 2 + Clash Cymbal
+@DPCM10 = { "wz_clsk2.dmc",15 }		// b : Kick 2 + PowSD 2 + ;Clash
+@DPCM9  = { "wz_tomh2.dmc",15 }		// a : Synth-Tom High
+@DPCM7  = { "wz_tomm2.dmc",14 }		// g : Synth-Tom Middle
+@DPCM5  = { "wz_toml2.dmc",12 }		// f : Synth-Tom Low
+
+
+;>>>>> Main
+ABCDE	t154
+
+// Melody
+A	o5l16q8MP0
+A	r1 @v5@@5EP5c4<EP6f4D-1v2f4D-2v1f4
+A	D0>@v5[EP5d2EPOFc2d-2e-2 <MP6EP6b-1|
+A	EP0@@12@v12b-b-8D-1@v14b->D0@v12cc8D-1@v14c
+A	c8D-2@v16@@16cc8D-3@v18@@17cc8
+A	D0MP0@v5@@5]2 EP7>c<EPOFb-a-gv2g@v5e-MP0EP8c8&c2
+A	t232l8 L[@v6@@6EP5f4.&f4EPOFe <EP6g2.& g2>EPOFcd <b-4.&b-4f
+A	>EP5f2. EPOFe-2. d2.& d2.
+A	<gcg>c<g>c g2. e2.& e4.cde- >c2.& c2. <EP5f2.& f2.|
+A	EPOF@v10@@5<ggg>@v5c4<g @v10b-b-b->@v5e-4<b-
+A	@v10>d-d-d-g-d-d- e-e-e-@v5a-4.
+A	@v13@@12cfc<b-4D-1@v15b-& b-4D-2@v17b-D0@v13a4D-1@v15a
+A	D0@v13b-afe-4D-1@v15e-& e-4D-2@v17e-2
+A	D0@v13b-ge->e-4D-1@v15e- D0@v13d<b-g>f4D-1@v15f
+A	D0@v13g4D-1@v15g4.D-2@v17g& g4D-3@v19g2
+A	D0@v13cde-D-1@v15c4<g >D0@v13fc<a->a-4g
+A	b-4D-1@v15b-D0@v13a-4D-1@v15a- D0@v13g4D-1@v15gD0@v13f4D-1@v15f
+A	D0@v13b-a-gfe-d c<b-a-gfe- >EP5d4D-1@v15d4.D-2@v17d& d4D-3@v19d2D0]2
+A	@v7@2EP5<b-2.& b-4.EPOFfb->d- a-2.& a-2gg-
+A	f2. EP7d4<MPOFEP9b-2& b-2.& b-2. D-1EP10v2b-2.& b-4
+A	D0@v7MP0EPOFfb->d-a- g-fe-d-c<b-> b-2.&
+A	b-2.& b-4.D-1v2b-4. D0@v7EP5>e-2. EPOFd2.
+A	@v8@@8EP7MP0<aEPOFg>cad>c <MPOFEP11e2. MP0EP5>e2. <EP7g4EPOFa4b4
+A	> c2.& c2. <EP5e4EPOFaEP5e4EPOFaEP5e4EPOFaEP5e4EPOFa
+A	e2. EPOFa2. gededc <agba>c<b
+A	EP5>e2.& e2. EPOFd2.& d2.
+A	@v7@@7<d-2. e-2. a-4.g-4. f4.e-4. c2. d-2. e-2.& e-2.
+A	d-e-fa-4. g-4.f4. >e-2.& e-2. c2.& c2.
+A	@v8@@8MP0<EP7aEPOFb>c<EP7aEPOFb>c< EP7b>EPOFcdEP7cEPOFde
+A	EP5>c2.& c4.EPOF<ab>c EP7e2. <EPOFd4EP12c2
+A	EP5c2.& c2. <b2.& b2EPOF>c<b
+A	EP5>c2. EPOFd2. <EP7gEPOFbg>EP7g4.& g2.
+A	@v7@@7EP7<aEPOFfaEP7bEPOFgb >EP7c<EPOFa>cEP7d<EPOFb>d
+A	EP7<aEPOFf+aEP7bEPOFg+b >EP7c+<EPOFa>c+e4.
+A	EP5a2.& a2.& a2.& a4.D-1v2a4.
+A	D0EP0@@12@v12<<a4.b4. >c4.d4. <a4.b4. >c+4.d4.
+
+
+// Backing / Sub Melody
+B	l16
+B	o2q6EP0@0@v18D-2f>cf<f>cf<f>c<f>cf<f>cf<f>c< D0
+B	EPOFo4q8@v5@@9EN2f4c4D-1v2c4D-2v1c4
+B	D0@v5EN4f2f2f+2g+2 EN4MP6e-1
+B	@@12@v12e-e-8D-1@v14e-EN7D0@v12e-e-8D-1@v14e-
+B	e-8D-2@v16@@16e-e-8D-3@v18@@17e-e-8
+B	D0MP0@v5@@9EN4f2f2f+2g+2 EN4MP6e-1 EN12e-2
+B	ENOFl24@v15<fb->dfb->dfb->dfb->d<<<
+B	t232l8L[@v6EN10c2. EN11c2. EN12c2. EN11c2.
+B	<EN10b-2. EN11b-2. >EN13c2. EN23d2.
+B	<EN10g2.& g2. >EN2EP7c<EPOFEN5gEN2g>EP5EN7c4. EN5c4.EN4c4.
+B	<EN4EP7a-EN6EPOFa-EN7EP5a-2& a-2. EN15b-2.& b-2.|
+B	EPOFENOF@v10@@5>ddd@v5g4d @v10fff@v5b-4f
+B	@v10a-a-a->d-<a-a- b-b-b->@v5e-4.
+B	<EN4@v5@@9cD-1v2cD0EN5@v5cEN7c4.& c2.& c2.& c2.
+B	EN4e-D-1v2e-D0EN5@v5e-EN7e-4.& e-2.& e-2.& e-2.
+B	EN4a-2. EN5e-2. >EN3c2. <EN4a-2. EN5f2.& f2.& f2.& f2.]2
+B	[[EN3b-ENOFf+EN3b->c4<ENOFa-]4
+B	[EN4b-ENOFfEN4b-EN5b-4ENOFa-]4]2
+B	EN3a2. >EN4c2. <g4EN3aD-1v2a4. @v5D0EN4g2.
+B	fENOFcEN5cEN4gENOFdEN3d aENOFeEN1eEN3bENOFfEN6f
+B	EN4g4EN3aD-1v2a4. @v5D0EN4g2.
+B	EN3a2. >EN4c2. <g4EN3aD-1v2a4. @v5D0EN4g2.
+B	fENOFcEN5cEN4gENOFdEN3d aENOFeEN1eEN3bENOFfEN6f
+B	EN3f+4.g+4. EN4a4.EN3b4.
+B	<EN11f+D-1v2f+D0@v5f+g+4. >EN14c4.<EN11g+4.
+B	f+2. EN16f+4f+2 EN11g+EN16g+EN11g+4ENOFb->c <EN11g+2.
+B	EN15g+4D-1v2g+D0@v5EN17g+4D-1v2g+
+B	D0@v5EN16g+4D-1v2g+D0@v5EN18f4D-1v2f D0@v5
+B	EN12b2. EN19a2.
+B	EN24g+ENOFf+fEN25f+ENOFfe- EN20e-EN21e-EN17g+4EN15g+4
+B	>EN14c2. <EN11g+4.>EN22e-4. >EN14c2.& c2.
+B	r4.D-1ENOF@v9@@8MP0EP5>>c2.& c4.EPOF<ab>c D0EP7g2. <EPOFf4EP12e
+B	EP5e2.& e2.& e4. <g2.& g2.
+B	EP5c2. EPOFd2. <EP7b>EPOFdgEP7b4.& b2.
+B	@v11@@7D-1EP7aEPOFfaEP7bEPOFgb >EP7c<EPOFa>cEP7d<EPOFb>d
+B	EP7<aEPOFf+aEP7bEPOFg+b >EP7c+<EPOFa>c+e4.
+B	D0EP5e2.& e2.& e2.& e4.
+B	<<EPOF@v5@@9EN4fENOFcEN5cEN4gENOFdEN5d EN3aENOFeEN5eEN3bENOFfEN6f
+B	<EP0@@12@v12ENOFf+4.g+4. a4.b4.
+
+
+// Bass
+C	o3l16q6 EP0
+C	[f>cf<f>cf<f>c<]20 >
+C	t232l8 L[>[cc<c>]8 <[b-b-<b->]8 [aa<a>]8 [a-a-<a->]4 [b-b-<b->]4|
+C	gd<g>a-e-<a-b-f>b-<bg->b c+g+>c+<da>d<<a->ce-a-4.
+C	[crc]8 [e-re-]8 <[a-ra-]8 [b-]12 [b-b->b-<b-b-b-]2]2
+C	[g-4r]8 [f4r]8 [g-4r]8 [f4r]8
+C	[a4aae>a<]2 [g4ggd>g<]2 [f4f]4 [g4ggd>g<]2
+C	[a4aae>a<]2 [g4ggd>g<]2 [f4f]4 [f+4f+]4
+C	[f+4r]8 [f4r]8 [f+4r]8 [f4r]8
+C	[a4aae>a<]2 [g4ggd>g<]2 [f4f]4 [g4ggd>g<]2
+C	[a4aae>a<]2 [g4ggd>g<]2 [f4f]4 [f+4f+]4
+C	[aaaae>a<]2 [ggggd>g<]2 [f>f<ffff]2 [f+4f+]4
+
+// Hi-hat, Ride Cymbal
+D	o2q8l16
+D	[EP2@v2cEP1@v1[c]3]38 EP3@v3c4c4
+D	t232l8L[[[EP2@v2cEP1@v1cc|c4c]4EP2@v2c4EP1@v1c
+D	[[EP2@v2cEP1@v1cc|c4c]2EP2@v2c4EP1@v1c]2]2|
+D	rccc4c [rcEP2@v2cEP1@v1|c4c]3 c4.
+D	[EP2@v2cEP1@v1ccc4c]16]2
+D	[EP2@v2cEP1@v1cc[EP4@v4cEP1@v1cc]31|
+D	[EP2@v2cEP1@v1ccc4c]16]2
+D	[EP2@v2cEP1@v1ccc4c]16
+D	EP2@v2cEP1@v1cc[EP4@v4cEP1@v1cc]15
+
+// DPCM Drums
+E	o0l8
+E	[c4]15d4 [c4]5d4c.e16d4 [c4]7d4 [c4]6a12a12a12g12g12f12
+E	t232L[[b4.d4. c4cd4. [c4.d4.| c4cd4.]3| c4cd4.]2 aagagf|
+E	ceebee cedbee ceebgf ceedee
+E	[[c4.d4.]3 cec|d4.]2 de4
+E	[[c4.d4.]3| cedd4.]2 dddagf]2
+E	b4cd4. [c4c|d4.]14 de4 cecdee
+E	b4cb-4. [c4cb-4.]2 cecb-4.
+E	[[c4cb-4.]3 cecb-4.]2
+E	[c4c|b-4.]3 de4 cecdee
+E	b4cd4. [c4c|d4.]14 de4 cecdee
+E	b4cb-4. [c4cb-4.]2 cecb-4.
+E	[[c4cb-4.]3 cecb-4.]2
+E	[c4c|b-4.]3 de4 cecdee
+E	b4cd4. [c4cd4.]7

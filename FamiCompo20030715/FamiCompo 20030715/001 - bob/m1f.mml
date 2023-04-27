@@ -1,0 +1,160 @@
+#TITLE Poliyanna from MOTHER/Earthbound
+#COMPOSER Keiichi Suzuki & Hirokazu Tanaka
+#PROGRAMER bob
+#EFFECT-INCLUDE
+#BANK-CHANGE 0,1
+
+@v0 = { 1 4 8 11 7 7 7 7 7 7 7 7 6 5 2 }
+@v1 = { 1 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 }
+@v2 = { 8 6 5 3 2 }
+@v3 = { 4 5 3 }
+@v4 = { 4 3 2 2 2 2 2 2 2 2 2 1 }
+@v5 = { 10 8 7 6 3 2 }
+@v10 = { 10 6 2 1 0 }
+
+@MP0 = { 18 3 2 0 }
+@MP1 = { 40 3 1 0 }
+@MP2 = { 4 4 1 0 }
+
+@DPCM00 = { "m1kick.dmc" 15 }
+@DPCM01 = { "m1sd.dmc" 15 }
+
+ABCDE t113
+
+A @2 @v1 l8 o4 MP1
+A dgbe4f+4 f+
+A f+ f+4 q6d2&
+A dq8dgbe4f+4q7f+&
+A f+1q8 MPOF
+A L@v0 
+A MP0 f+f+aa>e4c+q7d&
+A d1q8<bb>ddf+4d<a&
+A a4&agg2
+A f+f+aa>e4c+q7d&
+A d1q8<bb>ddf+4d<a&
+A a4&agg2
+A f+edef+4b4
+A >d4f+4b2
+A dc+<b>c+dc+<b>c+
+A d1
+A <aaarq4aq8f+eq7d&
+A d1q8aaar>edc+q7d&
+A d2&d4q8<b>c+
+A dc+<b>c+dc+<b>c+
+A dc+<b>c+dr<aa
+A >dc+<b>c+dc+<b>c+
+A ddddf+drq7d&
+A d1q8 MPOF
+
+
+B @2 l16 o5 MP1
+B @v5g@v4g @v5b@v4b > @v5d@v4d @v5c+@v4c+8&c+@v5d@v4d8&d@v5d@v4d
+B @v5d@v4d<@v5a@v4a8&a@v5b@v4q6b2&
+B bq8@v5g@v4g@v5b@v4b>@v5d@v4d@v5c+@v4c+8&c+@v5d@v4d8&d@v5d@v4q7d&
+B d1q8 MPOF
+B Lo4 MP0
+B r8@v2f+@v4f+@v2a@v4a>@v2d@v4dr8<@v2e@v4e@v2a@v4a>@v2c+@v4c+
+B r8<@v2d@v4d@v2f+@v4f+@v2b@v4br8@v2d@v4d@v2f+@v4f+@v2a@v4a
+B @v2g@v4g@v2b@v4b>@v2d@v4d<@v2g@v4g@v2f+@v4f+@v2a@v4a>@v2d@v4d<@v2f+@v4f+
+B @v2f@v4f@v2a@v4a>@v2c@v4c<@v2a@v4a@v2e@v4e@v2a@v4a@v2c+@v4c+@v2a@v4a
+B r8@v2f+@v4f+@v2a@v4a>@v2d@v4dr8<@v2e@v4e@v2a@v4a>@v2c+@v4c+
+B r8<@v2d@v4d@v2f+@v4f+@v2b@v4br8@v2d@v4d@v2f+@v4f+@v2a@v4a
+B @v2g@v4g@v2b@v4b>@v2d@v4d<@v2g@v4g@v2f+@v4f+@v2a@v4a>@v2d@v4d<@v2f+@v4f+
+B @v2f@v4f@v2a@v4a>@v2c@v4c<@v2a@v4a@v2e@v4e@v2a@v4a@v2c+@v4c+@v2a@v4a
+B r8<@v2b@v4b>@v2d@v4d@v2f+@v4f+r8<@v2a+@v4a+>@v2d@v4d@v2f+@v4f+
+B r8<@v2a@v4a>@v2d@v4d@v2f+@v4f+r8<@v2g+@v4g+@v2b@v4b>@v2e@v4e
+B @v1b8a8g8a8a8a8g8a8
+B f+1 @1
+B @v2c+@v4c+<@v2c+@v4c+@v2f+@v4f+>@v2c+@v4c+4&c+<@v2c+@v4c+8&
+B c+>@v2d@v4d<@v2d@v4d@v2g@v4g>@v2d@v4d4&d<@v2d@v4d8&
+B d>@v2c+@v4c+<@v2c+@v4c+@v2f+@v4f+@v2a@v4a>@v2c+@v4c+o2@v2a@v4a>@v2e@v4e@v2a@v4a
+B @v2f+@v4f+<@v2a@v4a>@v2d@v4d@v2f+@v4f+@v2a@v4a@v2d@v4d@v2f+@v4f+@v2a@v4a
+B >@v2b@v4b@v2g@v4g@v2d@v4d@v2g@v4g@v2a@v4a@v2f+@v4f+@v2d@v4dr8
+B @v2g@v4g@v2d@v4d<@v2b@v4b>@v2d@v4d@v2a@v4a@v2f+@v4f+@v2d@v4dr8
+B @v2b@v4b@v2g@v4g@v2d@v4d@v2g@v4g@v2a@v4a@v2f+@v4f+@v2d@v4dr8
+B @2@v1b8b8b8b8>d8<g8r8q7f+8&
+B f+1q8 MPOF
+
+C o4l16MP2
+C g4&g8q7a2&
+C a8q8d4&d8q6g2&
+C g8q8g4&g8a2q7d8&
+C d1q8MPOF
+C L
+C d8r4d8c+8r4c+8
+C <b8r4b8a8r4a8
+C g8r4g8f+8r4f+8
+C f8r4f8a8r4a8
+C >d8r4d8c+8r4c+8
+C <b8r4b8a8r4a8
+C g8r4g8f+8r4f+8
+C f8r4f8a8r4a8
+C brbrbrbra+ra+ra+ra+r
+C ararararg+rg+rg+rg+r
+C grgrgrgrarararar
+C d1
+C f+8r4f+8r2
+C g8r4g8r2
+C f+8r4f+8a8r4a8
+C >d8r4d8d8r4d8
+C <grgrgrgrf+rf+rf+rf+r
+C ererererf+rf+rf+rf+r
+C grgrgrgrf+rf+rf+rf+r
+C ererererarararar
+C d1
+
+D o1l16@v10
+D drdrdrdr8rdr8rdr
+D drdrdrdr8rdr8rdr
+D drdrdrdr8rdr8rdr
+D r8drdr2r8r
+D L
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D r8dr8rdr8rdr8rdd
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdrdrdr
+D drdrdrdr2r
+D drdrdrdr8rdrdr8r
+D drdrdrdr8rdrdr8r
+D drdrdrdrdrdrdrdr
+D drdrdrdrdr4rdr
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdrdrdr
+D drdrdrdrdrdr4r
+
+E o0l16q6
+E cr4rcr2r
+E cr4rcr2r
+E cr4rcr8rcr8rcr
+E r2c+c+crc+rcr
+E L
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+r8ccrcrc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrc+c+c+rc+rc+r
+E cr8rc+rcr8rc+rc+r8r
+E cr8rc+rcr8rc+rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcrc+rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+r8r
+E cr8rc+rcrcr8rc+c+c+r

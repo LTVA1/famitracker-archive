@@ -1,0 +1,38 @@
+#TITLE		ROPHON'S THEME for Famicompo
+#COMPOSER	ROPHON
+#PROGRAMER	ROPHON
+
+#BANK-CHANGE 1
+
+@v0 = { 15 5 0 }						; hat
+@v1 = { 15 15 13 11 11 9 7 7 5 5 5 5 3 2 1 0 }			; snare
+@v2 = { 11 11 8 8 | 6 }
+
+@EP1 = { 77 -127 -96 } ; bass
+
+
+ABCD t180 o4 l8 q8 v15
+
+A @2 o5 @v2 L
+A o5 a1g1f1g1 a1>c1<a1&a1
+A    d1e1f1g1 a1>c1<a1&a1
+A    >c1&c1&c1&c1< [r1]4
+A    [r1]8
+
+A o4 [ [ c>ceg&g2< c>cde&e2< ]2 | >c<agf&f2 agfd&d2 c1 d1 ]2
+A    >c<agf&f2 agfd&d2 c4d4f4g4 a4g4f4e4
+A o4 [ [ c>ceg&g2< c>cde&e2< ]2 | [ d>dfg&g2< d>fga&a2< ]2 ]2
+A    >c<agf&f2 agfd&d2 c4d4f4g4 a4>c4d4f4
+
+A l16 [ c>c<c<c>c<cc>c d>d<d<d>d<dd>d f>f<f<f>f<ff>f g>g<g<g>g<gg>g]4 l8
+A l16 [ >g<<g>g<g> ]16 > [ >c<<c>c<c> ]15 rrrr < l8
+
+B @2 o2 v15 l16 q7 L
+B [[>ar<aaaraa]4 [>gr<gggrgg]4]2 [>fr<fffrff]4 [>gr<gggrgg]4 [>ar<aaaraa]4 [>gr<gggrgg]4
+B [[>ar<aaaraa]4 [>gr<gggrgg]4]2 [>fr<fffrff]4 [>gr<gggrgg]4 [>ar<aaaraa]8
+
+C EP1 v15 o4 l8 L
+C ccrccrrc
+
+D o1 q7 L
+D [ [@v0[f+16]4@v1a@v0[f+16]2]15 @v0[f+16]4@v1[a16]4 ]8

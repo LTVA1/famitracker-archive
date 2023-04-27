@@ -1,0 +1,19 @@
+NSF HEADER:
+
+Version number: 1
+Number of songs: 1
+First song: 1
+Load address: $8080
+Init address: $8A16
+Play address: $8A03
+NTSC speed: $3A1A
+PAL speed: $4E20
+Bankswitch init values: $00 $00 $00 $00 $00 $00 $00 $00
+Title: Slayers Next - Give A Reason
+Author: DJ Bouche [Orig: M.Hayashibara]
+Copyright: 2003
+
+NSF DATA:
+
+Data size: 24448
+

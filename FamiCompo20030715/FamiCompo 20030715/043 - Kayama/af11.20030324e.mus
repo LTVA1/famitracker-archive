@@ -1,0 +1,221 @@
+#bank-change 4 ; D
+
+@dpcm00 = { "mute.dmc", $f } ; o0c
+@dpcm01 = { "ogstel.dmc", $f } ; o0d-
+@dpcm02 = { "rave31.dmc", $c } ; o0d
+;@dpcm03 = { "rave34.dmc", $d } ; o0e-
+;@dpcm04 = { "rave33.dmc", $d } ; o0e
+@dpcm05 = { "rave35.dmc", $e } ; o0f
+;@dpcm06 = { "rave34.dmc", $e } ; o0g-
+@dpcm07 = { "rave33.dmc", $e } ; o0g
+@dpcm08 = { "rave32.dmc", $e } ; o0a-
+@dpcm09 = { "rave31.dmc", $e } ; o0a
+@dpcm10 = { "rave35.dmc", $f } ; o0b-
+;@dpcm11 = { "rave34.dmc", $f } ; o0b
+@dpcm16 = { "rave33.dmc", $f } ; o1c
+;@dpcm17 = { "rave32.dmc", $f } ; o1d-
+@dpcm18 = { "rave31.dmc", $f } ; o1d
+
+;@v0 = { 8 8 8 8 8 8 8 7 7 7 7 7 7 7 6 6 6 6 6 6 6 5 5 5 5
+;5 5 5 4 4 4 4 4 4 4 3 3 3 3 3 3 3 2 2 2 2 2 2 2 1 } ; bass
+@v0 = { 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 3 4 4 4 4 4 4 4 5 5 5
+5 5 5 5 6 6 6 6 6 6 6 7 7 7 7 7 7 7 8 8 8 8 8 8 8 } ; bass 2^16
+;@v1 = { 9 9 9 8 8 8 7 7 7 7 6 6 6 6 5 5 5 5 5 4 4 4 4 4 3 } ; bass
+@v1 = { 4 4 4 4 4 5 5 5 5 5 6 6 6 6 7 7 7 7 8 8 8 9 } ; bass 4
+;@v2 = { 9 5 5 5 5 5 4 4 4 4 4 3 } ; bass
+@v2 = { 3 3 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 9 } ; bass 8.
+;@v3 = { 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 7 7 7 8 } ; cymbal rev
+@v3 = { 8 7 7 7 6 6 6 5 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 1 1 1 1 0 } ; cymbal rev
+;@v4 = { 4 2 1 1 0 } ; hihat close
+@v4 = { 0 0 1 1 2 4 } ; hihat close
+;@v5 = { 5 4 3 3 3 2 2 1 0 } ; hihat open
+@v5 = { 0 0 0 0 0 1 2 3 3 3 4 5 } ; hihat open 8
+;@v6 = { 10 7 3 4 3 1 1 0 } ; snare
+@v6 = { 1 3 4 3 7 10 } ; snare
+;@v7 = { 8 5 3 4 3 1 1 0 } ; snare -
+@v7 = { 1 3 4 3 5 8 } ; snare -
+;@v8 = { 6 4 2 1 0 } ; hihat close +
+@v8 = { 0 0 1 2 4 6 } ; hihat close +
+;@v9 = { 9 6 3 1 0 } ; hihat close ++
+@v9 = { 1 3 6 9 } ; hihat close ++ %8
+;@v10 = { 10 8 7 7 6 6 6 5 5 5 4 4 4 4 3 3 3 3 2 2 2 2 1 1 1 1 0 } ; cymbal
+@v10 = { 1 1 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 6 6 6 7 7 8 10 } ; cymbal 4
+;@v11 = { 5 2 3 2 1 0 } ; snare --
+@v11 = { 0 1 2 3 2 5 } ; snare --
+;@v12 = { 6 4 4 4 4 3 3 3 3 3 2 2 2 2 2 2 1 1 1 1 1 1 1 0 } ; se
+@v12 = { 3 4 4 4 4 6 } ; se 16
+;@v13 = { 5 4 4 3 3 3 3 2 2 2 2 2 1 1 1 1 1 1 0 } ; se -
+@v13 = { 3 3 3 4 4 5 } ; se - 16
+;@v14 = { 5 3 3 3 3 2 2 2 2 2 1 1 1 1 1 1 0 } ; se --
+@v14 = { 2 3 3 3 3 5 } ; se -- 16
+;@v15 = { 4 3 3 2 2 2 2 2 1 1 1 1 1 1 0 } ; se ---
+@v15 = { 2 2 2 3 3 4 } ; se --- 16
+;@v16 = { 4 2 2 2 2 2 1 1 1 1 1 1 0 } ; se ----
+@v16 = { 2 2 2 2 2 4 } ; se ---- 16
+;@v17 = { 3 2 2 1 1 1 1 1 0 } ; se -----
+@v17 = { 1 1 1 2 2 3 } ; se ----- 16
+;@v18 = { 3 1 1 1 1 1 0 } ; se ------
+@v18 = { 1 1 1 1 1 3 } ; se ------ 16
+;@v19 = { 7 5 5 4 4 4 3 3 3 3 2 } ; portamento synth
+@v19 = { 2 2 2 2 2 2 2 2 3 3 3 3 4 4 4 5 5 7 } ; portamento synth 8.
+;@v20 = { 4 2 2 1 0 } ; resonance
+@v20 = { 0 0 1 2 2 4 } ; resonance
+;@v21 = { 5 3 2 1 0 } ; resonance +
+@v21 = { 0 0 1 2 3 5 } ; resonance +
+;@v22 = { 6 4 3 2 1 0 } ; resonance ++
+@v22 = { 0 1 2 3 4 6 } ; resonance ++
+;@v23 = { 7 5 4 3 2 1 0 } ; resonance +++
+@v23 = { 1 2 3 4 5 7 } ; resonance +++
+@v24 = { 3 3 3 3 4 4 4 4 5 5 5 6 6 6 7 7 8 10 } ; cymbal 8.
+@v25 = { 4 4 5 5 5 6 6 6 7 7 8 10 } ; cymbal 8
+@v26 = { 6 6 7 7 8 10 } ; cymbal 16
+@v27 = { 2 3 3 3 4 5 } ; hihat open 16
+@v28 = { 5 5 5 5 6 6 6 6 7 7 7 7 8 8 8 9 } ; bass 8.
+@v29 = { 6 6 7 7 7 7 8 8 8 9 } ; bass 8
+@v30 = { 8 8 8 9 } ; bass 16
+@v31 = { 3 4 4 4 4 4 5 5 5 5 5 9 } ; bass 8
+@v32 = { 2 2 3 3 3 3 4 4 4 5 5 7 } ; portamento synth 8
+@v33 = { 4 4 4 5 5 7 } ; portamento synth 16
+@v34 = { 2 2 3 3 3 3 3 4 4 4 4 6 } ; se 8
+
+;@0 = { 0 1 } ; bass
+@0 = { 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 } ; bass 4
+@1 = { 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 } ; bass 8.
+@2 = { 1 1 1 1 1 1 1 1 1 1 1 0 } ; bass 8
+@3 = { 1 1 1 1 1 0 } ; bass 16
+
+;@EP0 = { 0 | -127 } ; kick
+@EP0 = { 0 | 126 } ; kick
+;@EP1 = { -4 8 1 1 1 } ; snare
+@EP1 = { 7 -1 -1 -8 4 0 } ; snare
+;@EP2 = { 0 | -27 } ; se
+@EP2 = { -127 24 24 24 24 24 24 24 24 24 24 13 0 } ; se
+;@EP3 = { 60 -20 -20 -20 0 } ; portamento synth
+@EP3 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20 20 20 } ; portamento synth 8.
+;@EP4 = { 32 -16 -16 0 } ; resonance
+@EP4 = { 0 0 0 0 16 16 } ; resonance
+;@EP5 = { 48 -24 -24 0 } ; resonance +
+@EP5 = { 0 0 0 0 24 24 } ; resonance +
+;@EP6 = { 72 -24 -24 -24 0 } ; resonance ++
+@EP6 = { 0 0 0 24 24 24 } ; resonance ++
+;@EP7 = { 96 -24 -24 -24 -24 0 } ; resonance +++
+@EP7 = { 0 0 24 24 24 24 } ; resonance +++
+@EP8 = { 0 0 0 0 0 0 0 0 0 20 20 20 } ; portamento synth 8
+@EP9 = { 0 0 0 20 20 20 } ; portamento synth 16
+@EP10 = { 27 } ; se
+
+@EN0 = { -5 -7 12 0 } ; bass
+;@EN1 = { 6 -2 -1 -1 -1 -1 0 } ; cymbal
+@EN1 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 0 } ; cymbal 4
+;@EN2 = { 3 -1 -1 -1 0 } ; cymbal light
+@EN2 = { 0 0 0 0 0 0 0 0 1 1 1 0 } ; cymbal light
+@EN3 = { 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 0 } ; cymbal 8.
+@EN4 = { 0 0 0 0 0 0 1 1 1 1 2 0 } ; cymbal 8
+@EN5 = { 1 1 1 1 2 0 } ; cymbal 16
+
+
+EACDB t150
+
+E o1 l16
+A o2 l16
+C EP0 o1 l16
+D o0 l16
+B @2 l16
+
+EACDB L
+
+;E [ [ d8<dd8dd8> | c8<dd8dd8> ]2 | <a8ff8ff8> ]2 <d16.d-32^4.>
+;E [ [ d8<dd8dd8> | c8<dd8dd8> ]2 <a8ff8ff8> ]3
+;E d8<dd8dd8> c8<dd8dd8 c1
+;E g8cg8.a-8f8cf8.a-8 g8cg8.b-8f8cf8.a-8 c1c1
+;E g8gg8.a-8f8ff8.a-8 g8cg8.b-8f8cf8.a-8 c1c1
+;E r1r1r1r1 r1r1r1r1
+;E [ acrr acrr acrr a8b-c acra crac acrr | a8b-c ]2 >c4
+;E [ d4<acrracrra8b-cacracracacrra8g8 | >d4< acrr acrr a8b-c acra crac acrr >c4 ]3
+;E d8.d8.d8.d8.d8d8 dd8d8.d8.d8.d8d8
+
+E d8d8d8.d8.d8.d8d d8d8d8.d8.d8.d8.
+E < [ g8a8crracacracracb-a8crracrrac>d8. | <c>c8.<crracacracracb-a8crracrrac>d8. ]3
+E <c>c8.< [ crracacracracb-a8crracrracrra | cb-a8 ]2
+E c1r1r1r1 r1r1r1r1
+E c1c1 a-8f8.cf8b-8g8.cg8 a-8f8.ff8a-8g8.gg8
+E c1c1 a-8f8.cf8b-8g8.cg8 a-8f8.cf8a-8g8.cg8
+E c1 d8dd8d>c8< d8dd8d>d8<
+E [ f8ff8fa8 [ d8dd8d>d8< | d8dd8d>c8< ]2 ]3
+E cd-^4d8 [ [ d8dd8d>d8< | d8dd8d>c8< ]2 | f8ff8fa8 ]2
+
+;A @2@v0 d1^1^1^2^8r4.
+;A @@0@v1 [ d8e-8de-d8 g8de-d8e-8 ]7 d1
+;A [ [ >d8.<d8.e-8a-8.a-8.g8 ]2 [ >d8<dd8dd8g8ff8ff8 ]2 ]2
+;A @2@v2EN0 [ g8q1gq8g8.a-8f8q1fq8f8.a-8 g8q1gq8g8.b-8f8q1fq8f8.a-8 ]4 ENOF
+;A @@0@v1 [ arrr arrr arrr a8b-8 arra rrar arrr | a8b-8 ]2 >c4
+;A [ [ d8<dd8dd8 | >c8<dd8dd8 ]2 a8ff8ff8 ]5
+;A d8.d8.d8.d8.d8d8 dd8d8.d8.d8.d8d8
+
+A @v29@@2d8d8@v28@@1d8.d8.d8.@v29@@2d8@v30@@3d @v29@@2d8d8@v28@@1d8.d8.d8.d8.
+A [ @v29@@2f8@v30@@3f@v29@@2f8@v30@@3f@v29@@2a8 [ @v29@@2d8@v30@@3d@v29@@2d8@v30@@3d>@v29@@2d8< | @v29@@2d8@v30@@3d@v29@@2d8@v30@@3d>@v29@@2c8< ]2 ]5
+A >@v1@@0c4< @v30@@3 [ rrrararrarra@v29@@2b-8a8@v30@@3rrrarrrarrra | @v29@@2b-8a8@v30@@3 ]2
+A @2 [ @v31a-8@v2f8.r%9v9f%2r%1q8@v31f8b-8@v2g8.r%9v9g%2r%1@v31g8 a-8@v2f8.r%9v9f%2r%1@v31f8a-8@v2g8.r%9v9g%2r%1@v31g8 ]4
+A [ [ @v29@@2f8@v30@@3f@v29@@2f8@v30@@3f@v29@@2g8d8@v30@@3d@v29@@2d8@v30@@3d>@v29@@2d8< ]2 [ @v29@@2g8@v28@@1a-8.a-8.@v29@@2e-8@v28@@1d8.>d8.< ]2 ]2
+A @1v3d2.@@0@v1d4 [ @v29@@2e-8d8@v30@@3e-d@v29@@2g8 d8@v30@@3e-d@v29@@2e-8d8 ]7
+A @2 v1d1^1^1^4..@v0d16^2
+
+;C e8r2..r1r1r1
+;C [ [ e8rr ]6 e8re8re8 ]3 [ e8rr ]4 r1
+;C [ e8rre8rre8re8re8 e8ree8rre8re8re8 ]4
+;C EPOF<< [ g8q1gq8g8.a-8f8q1fq8f8.a-8 g8q1gq8g8.b-8f8q1fq8f8.a-8 ]2
+;C [ >>EP0e8EPOF<<q1gq8g8.a-8f8q1fq8f8.a-8 >>EP0e8EPOF<<q1gq8>>EP0e8EPOF<<g>>EP0e8EPOF<<f8q1fq8f8.a-8 ]2 >>EP0
+;C [ [ e8rr ]4 e8re8re8e8rr | e8e8 ]2 e8rr
+;C [ [ e8re ]15 eeee ]2 [ e8re ]7 eeee
+;C e8re8re8re8re8e8 ee8e8re8re8re8e8
+
+C e8e8re8re8re8e8>b-< e8e8re8re8re8re8
+C >b-b-b-b-< [ >b-<re8 ]7 [ >b-b-b-b-< [ >b-<re8 ]15 ]2
+C rre8 [ rre8e8re8re8 [ rre8 ]4 | e8e8 ]2
+C EPOF> [ a-8f8.r%9f%2r%1f8<EP0e8EPOF>g<EP0e8EPOF>r%9g%2r%1<EP0e8EPOF> a-8f8.r%9f%2r%1f8a-8g8.r%9g%2r%1<EP0e8EPOF> ]2
+C [ a-8f8.q1fq8f8b-8g8.q1gq8g8 a-8f8.q1fq8f8a-8g8.q1gq8g8 ]2 <EP0
+C [ e8re8re8rre8>b-<re8 e8re8re8rre8rre8 ]4
+C r1 [ rre8 ]4 [ e8re8re8 [ rre8 ]6 ]3
+C r1r1r1r2..e8
+
+;D v1c1c1c1r2^8@v3c4.
+;D [ @v4ffffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4 fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4fff
+;D fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4fEP1@v7ggEPOF@v4 fEP1@v6gEPOF@v4ffEP1@v6g | EPOF@v4ffEP1@v6gEPOF@v4 ]2 gggEPOF@v4
+;D [ @v4ffffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4 fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4fff |
+;D fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4fEP1@v7ggEPOF@v4 fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4 ]2 r1
+;D [ [ ff@v5d+8EP1@v6gEPOF@v4f@v5d+EP1@v7gEPOF@v4 ff@v5d+8EP1@v6gEPOF@v4f@v5d+8@v4 |
+;D ff@v5d+8EP1@v6gEPOF@v4f@v5d+EP1@v7gEPOF@v4 fEP1@v7gEPOF@v5d+8EP1@v6gEPOF@v4f@v5d+8@v4 ]2
+;D fEP1@v6gEPOF@v5d+8EP1@v6gEPOF@v4f@v5d+EP1@v7gEPOF@v4 fEP1@v7gEPOF@v5d+8EP1@v7ggggEPOF@v4 ]2
+;D [ [ @v8f@v4fff ]2 @v9f%8@v8f%16@v4ff @v8f@v4fff ]4
+;D [ [ @v8f@v4f | f ]3 [ @v8f@v4fff ]2 ]4
+;D [ EN1@v10c+4ENOF@v4 [ f ]24 | ffff ]2 EP1@v6gEPOF@v4fff
+;D [ [ fEP1@v7gEPOF@v4fEP1@v11g@v6g | EPOF@v4ffEP1@v7gEPOF@v4 ]8 gggEPOF@v4 ]2
+;D   [ fEP1@v7gEPOF@v4fEP1@v11g@v6g | EPOF@v4ffEP1@v7gEPOF@v4 ]4 gggEPOF
+;D EN1@v10c+8.c+8.c+8.c+8.c+8c+8c+c+8c+8.c+8.c+8.c+8EN2c8ENOF
+
+D v1c%2EN2@v25c%22EN4c+8@v24EN3c+8.c+8.c+8.@v25EN4c+8@v26EN5c+@v25EN4c+8c+8@v24EN3c+8.c+8.c+8.c+8.ENOF
+D EP1@v6ggg [ EP1@v6g@v11gEPOF@v4fEP1@v7gEPOF@v4f | EP1@v7gEPOF@v4ff ]4
+D [ EP1@v6ggg [ EP1@v6g@v11gEPOF@v4fEP1@v7gEPOF@v4f | EP1@v7gEPOF@v4ff ]8 ]2
+D EPOF@v4fffEP1@v6gEPOF@v4 [ [ f ]24 EN1@v10c+4ENOF@v4 | ffff ]2
+D [ [ @v4fff@v8f ]2 [ @v4f@v8f | @v4f ]3 ]4
+D [ @v4fff@v8f @v4ff@v8f%16@v9f%8 [ @v4fff@v8f ]2 ]4
+D [ EP1@v7ggggEPOF@v5d+8EP1@v7gEPOF@v4f EP1@v7gEPOF@v27d+@v4fEP1@v6gEPOF@v5d+8EP1@v6gEPOF@v4f
+D [ @v5d+8@v4fEP1@v6gEPOF@v5d+8@v4ff EP1@v7gEPOF@v27d+@v4fEP1@v6gEPOF@v5d+8@v4ff |
+D @v5d+8@v4fEP1@v6gEPOF@v5d+8EP1@v7gEPOF@v4f EP1@v7gEPOF@v27d+@v4fEP1@v6gEPOF@v5d+8@v4ff ]2 ]2
+D r1 [ @v4fffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f EP1@v6gEPOF@v4ffEP1@v6gEPOF@v4ffff |
+D EP1@v6gEPOF@v4ffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f EP1@v7ggEPOF@v4fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f ]2
+D EP1@v6ggg [ EP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f EP1@v7ggEPOF@v4fEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f
+D fffEP1@v6gEPOF@v4ffEP1@v6gEPOF@v4f EP1@v6gEPOF@v4ffEP1@v6gEPOF@v4ffff | EP1@v6gEPOF@v4ff ]2
+D @v3c1^1^1^1
+
+;B [ r1 ]12
+;B [ r1r1 o6 EP4@v20d8<dd8dd8EP5@v21g8ff8ff8> EP6@v22d8<dd8dd8EP7@v23g8ff8ff8 ]2
+;B o2 EP2@v18ab-@v17b>c@v16d-d@v15e-e@v14fg-@v13ga-@v12ab-b>cr1 c+8.c+8.d8<b8.b8.>d8 c+8.c+8.e8<b8.b8.>d8
+;B EP3@v19o5 e8re8.f8d8rd8.f8 e8re8.g8d8rd8.f8 e8ee8ef8d8dd8df8 e8re8.g8d8rd8.f8
+;B [ r1 ]16
+
+B [ r1 ]16
+B o5 EP8@v32f8EP3@v19d8.rEP8@v32d8g8EP3@v19e8.rEP8@v32e8 f8EP9@v33dEP8@v32d8EP9@v33dEP8@v32d8f8EP9@v33eEP8@v32e8EP9@v33eEP8@v32e8 f8EP3@v19d8.rEP8@v32d8g8EP3@v19e8.rEP8@v32e8 f8EP3@v19d8.rEP8@v32d8f8EP3@v19e8.rEP8@v32e8
+B o6 EP2D-127@v34 d8<rb8rb8>e8rc+8rc+8 d8<rb8rb8>d8rc+8rc+8 D255r1 o5 EP10D-64 @v12c<bb-a@v13a-g@v14g-f@v15ee-@v16dd-@v17c<b@v18b-a D255
+B o5 [ EP7@v23rffrffrgEP6@v22rddrdd>rd< EP5@v21rffrffrgEP4@v20rddrdd>rd< r1r1 ]2
+B [ r1 ]12

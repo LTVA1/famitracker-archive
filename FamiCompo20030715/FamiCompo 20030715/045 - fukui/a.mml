@@ -1,0 +1,42 @@
+@dpcm0 = { "909kick.dmc", 15 }
+@v0 = { 6 7 | 6 6 6 6 6 5 5 5 5 5 5 }
+@v1 = { 5 6 | 5 5 5 5 5 5 4 4 4 4 4 4 }
+@v10 = { 14 6 5 4 3 2 }
+@v11 = { 6 2 }
+@0 = { 0 2 }
+@1 = { 2 1 }
+@EN0 = { 7 | 0 }
+@EP0 = { 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | 1 1 1 1 0 -1 -1 -1 -1  }
+
+;init.
+ABCDE t112 l4
+AB @@0 @v0 EP0
+A @@1 @v1 EPOF EN0
+
+;loop
+ABCDE L
+
+AB o4
+AB d.e.b ^2.a8b8
+AB g.>d.f+ ^2gf+
+AB e.<b.g+ ^1>
+AB d32e4...c<g abf+2
+AB d.e.b ^2.a8b8
+AB g.>d.f+ ^2gb
+AB a.e.c+ ^1
+AB a32b4...a2 f+2d2
+C q7
+C o3 l24 [a12ab12a>d12d<b12>d d12dr12d<a12ab12b a12b>e12ed12d<b12b>d12<br12>d<b12b>f+12f+]2
+C l1 c+c+ c d
+C o3 l24 [a12ab12a>d12d<b12>d d12dr12d<a12ab12b a12b>e12ed12d<b12b>d12<br12>d<b12b>f+12f+]2
+C l1 c+c+ c d
+D l24 [@v10c12cc12c@v11g12@v10cc12@v11g@v10c12c@v11f+12@v10cc12@v11f+@v10c12c
+D       @v11g+12@v10cc12@v11g+@v10c12c@v11f12@v10cc12@v11f@v10c12c@v11e12@v10c@v11eee]8
+E o0 L
+E [c2^8c8^12c8^24]4
+E [
+E  c8c8c4c4c4
+E  c4c4c4c8c8
+E  c4c4c4c4
+E  c4c8^12c24c8c8c8c8
+E ]3

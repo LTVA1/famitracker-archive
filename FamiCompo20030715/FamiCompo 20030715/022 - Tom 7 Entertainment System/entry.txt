@@ -1,0 +1,14 @@
+
+[song name] :           Giant Stone Space Station
+[original or cover?] :  Original
+[composer name] :       Tom 7 Entertainment System
+[recomendable player] : GNSF
+[music editor] :        Cakewalk 3.0 -> 
+	                midimml (I wrote it for the compo!) -> 
+	                mck
+[sound source file] :   included
+[comment] :             Nintendo forever!
+                        http://tom7.org/music/
+
+MIDIMML here:
+http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/tom7misc/midimml/

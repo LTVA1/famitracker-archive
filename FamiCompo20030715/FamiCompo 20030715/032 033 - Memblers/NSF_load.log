@@ -1,0 +1,19 @@
+NSF HEADER:
+
+Version number: 1
+Number of songs: 2
+First song: 1
+Load address: $8080
+Init address: $8A1C
+Play address: $8A09
+NTSC speed: $411A
+PAL speed: $4E20
+Bankswitch init values: $00 $00 $00 $00 $00 $00 $00 $00
+Title: covers (C.Gounod and R.Hubbard)
+Author: Memblers                       
+Copyright: FamiCompo 2003                 
+
+NSF DATA:
+
+Data size: 21120
+
